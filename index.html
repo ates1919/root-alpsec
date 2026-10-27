@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>root@alpsec — /dev/portfolio</title>
+<link rel="icon" href="data:image/jpeg;base64,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" />
+<meta name="description" content="Süleyman Sungur Alp Ateş — Bilişim Güvenliği öğrencisi, Red/Blue Team. Sızma testi, ağ analizi, malware analizi ve otomasyon." />
+<style>
+  :root{
+    --bg:#04060f;
+    --bg2:#070b18;
+    --neon-rgb:0,229,255;        /* cyan  */
+    --alt-rgb:177,77,255;        /* mor   */
+    --pink-rgb:255,46,136;       /* glitch*/
+    --neon:#00e5ff;
+    --alt:#b14dff;
+    --pink:#ff2e88;
+    --dim:#5d7590;
+    --txt:#e2f6ff;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--txt);
+    font-family:var(--mono);overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--neon);color:#00131a}
+
+  /* ---------- BACKGROUND ---------- */
+  #net,#matrix{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  #net{opacity:.6}
+  #matrix{opacity:.14}
+  .gridfloor{
+    position:fixed;left:-50%;right:-50%;bottom:-10vh;height:60vh;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(var(--neon-rgb),.20) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(var(--alt-rgb),.20) 1px,transparent 1px);
+    background-size:60px 60px;
+    transform:perspective(340px) rotateX(62deg);
+    mask-image:linear-gradient(to top,#000 0%,transparent 78%);
+    -webkit-mask-image:linear-gradient(to top,#000 0%,transparent 78%);
+    animation:floor 6s linear infinite;
+  }
+  @keyframes floor{to{background-position:0 60px,60px 0}}
+  .scanlines{
+    position:fixed;inset:0;z-index:60;pointer-events:none;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.32) 2px 4px);
+    mix-blend-mode:multiply;opacity:.5;
+  }
+  .vignette{
+    position:fixed;inset:0;z-index:59;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 40%,transparent 28%,rgba(2,4,12,.88) 100%);
+  }
+
+  /* ---------- BOOT ---------- */
+  #boot{position:fixed;inset:0;z-index:100;background:#02040c;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s}
+  #boot.done{opacity:0;visibility:hidden}
+  #boot .box{width:min(640px,90vw);font-size:13px;line-height:1.9}
+  #boot .line{opacity:0;animation:fadein .2s forwards}
+  #boot .line b{color:var(--neon)}
+  #boot .line .ok{color:var(--alt)}
+  #boot .bar{height:6px;margin-top:16px;border:1px solid rgba(var(--neon-rgb),.4);background:rgba(var(--neon-rgb),.06)}
+  #boot .bar i{display:block;height:100%;width:0;background:linear-gradient(to right,var(--neon),var(--alt));box-shadow:0 0 12px var(--neon)}
+  @keyframes fadein{to{opacity:1}}
+
+  /* ---------- NAV ---------- */
+  .wrap{position:relative;z-index:5;max-width:1180px;margin:0 auto;padding:0 22px}
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:70;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,rgba(4,6,15,.92),rgba(4,6,15,.35));
+    border-bottom:1px solid rgba(var(--neon-rgb),.16);
+  }
+  nav .brand{font-weight:700;letter-spacing:.12em;font-size:14px;color:var(--neon);text-shadow:0 0 14px rgba(var(--neon-rgb),.85)}
+  nav .brand span{color:var(--alt)}
+  nav ul{display:flex;gap:20px;list-style:none;font-size:12.5px;letter-spacing:.06em}
+  nav a{color:#8aa8bd;text-decoration:none;transition:.25s;position:relative}
+  nav a:hover{color:var(--neon);text-shadow:0 0 10px rgba(var(--neon-rgb),.8)}
+  nav a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--neon);transition:.3s}
+  nav a:hover::after{width:100%}
+  .status{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--dim);letter-spacing:.1em}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+
+  /* ---------- HERO ---------- */
+  header.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px;padding:120px 0 60px}
+  .kicker{font-size:11.5px;letter-spacing:.3em;color:var(--alt);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .kicker::before{content:'';width:34px;height:1px;background:var(--alt);box-shadow:0 0 10px var(--alt)}
+  h1.glitch{
+    font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1.04;letter-spacing:-.02em;font-weight:800;
+    color:#f0fdff;position:relative;text-shadow:0 0 26px rgba(var(--neon-rgb),.4);
+  }
+  h1.glitch::before,h1.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;clip-path:inset(0 0 55% 0)}
+  h1.glitch::before{color:var(--pink);transform:translate(-2px,-1px);opacity:.7;animation:g1 4.2s infinite steps(2)}
+  h1.glitch::after{color:var(--neon);clip-path:inset(58% 0 0 0);transform:translate(2px,1px);opacity:.7;animation:g2 3.4s infinite steps(2)}
+  @keyframes g1{0%,92%,100%{transform:translate(0,0)}93%{transform:translate(-5px,-2px)}96%{transform:translate(3px,1px)}}
+  @keyframes g2{0%,88%,100%{transform:translate(0,0)}89%{transform:translate(5px,2px)}94%{transform:translate(-3px,-1px)}}
+  .role{color:var(--neon);font-size:clamp(.92rem,1.9vw,1.15rem);margin-top:16px;letter-spacing:.04em;min-height:1.6em}
+  .role .cursor{display:inline-block;width:9px;height:1.05em;background:var(--neon);vertical-align:-3px;margin-left:4px;animation:blink 1s steps(1) infinite;box-shadow:0 0 10px var(--neon)}
+  @keyframes blink{50%{opacity:0}}
+  .lead{color:#94aec1;max-width:54ch;margin-top:20px;line-height:1.85;font-size:14.5px}
+  .lead b{color:var(--txt)}
+  .lead em{color:var(--neon);font-style:normal}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .btn{
+    position:relative;display:inline-flex;align-items:center;gap:10px;
+    padding:13px 24px;font-family:var(--mono);font-size:13px;letter-spacing:.09em;
+    color:#00131a;background:var(--neon);border:none;cursor:pointer;text-decoration:none;font-weight:700;
+    clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+    transition:.25s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(var(--neon-rgb),.6)}
+  .btn.ghost{background:transparent;color:var(--neon);box-shadow:inset 0 0 0 1px rgba(var(--neon-rgb),.55)}
+  .btn.ghost:hover{background:rgba(var(--neon-rgb),.1);box-shadow:inset 0 0 0 1px var(--neon),0 0 26px rgba(var(--neon-rgb),.35)}
+
+  /* ---------- 3D ---------- */
+  .scene{perspective:1100px;display:flex;align-items:center;justify-content:center;height:420px}
+  .cube-wrap{position:relative;width:230px;height:230px;transform-style:preserve-3d;animation:spin 16s linear infinite}
+  @keyframes spin{0%{transform:rotateX(-22deg) rotateY(0)}100%{transform:rotateX(-22deg) rotateY(360deg)}}
+  .cube{position:absolute;inset:0;transform-style:preserve-3d}
+  .face{
+    position:absolute;inset:0;border:1px solid rgba(var(--neon-rgb),.6);
+    background:linear-gradient(135deg,rgba(var(--neon-rgb),.10),rgba(var(--alt-rgb),.08));
+    box-shadow:inset 0 0 34px rgba(var(--neon-rgb),.18);
+    display:grid;place-items:center;font-size:10px;letter-spacing:.28em;color:rgba(var(--neon-rgb),.6);
+  }
+  .face::before{content:'';position:absolute;inset:14px;border:1px dashed rgba(var(--alt-rgb),.28)}
+  .f1{transform:translateZ(115px)}.f2{transform:rotateY(180deg) translateZ(115px)}
+  .f3{transform:rotateY(90deg) translateZ(115px)}.f4{transform:rotateY(-90deg) translateZ(115px)}
+  .f5{transform:rotateX(90deg) translateZ(115px)}.f6{transform:rotateX(-90deg) translateZ(115px)}
+  .halo{position:absolute;inset:-70px;border-radius:50%;border:1px solid rgba(var(--neon-rgb),.22);animation:orbit 12s linear infinite;transform-style:preserve-3d}
+  .halo:nth-child(2){inset:-100px;border-color:rgba(var(--alt-rgb),.25);animation-duration:19s;animation-direction:reverse}
+  @keyframes orbit{to{transform:rotate3d(1,.4,0,360deg)}}
+  .glowball{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(var(--alt-rgb),.20),transparent 65%);filter:blur(6px)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:90px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(1.35rem,3.2vw,2rem);letter-spacing:-.01em;color:#f0fdff}
+  .sec-head .num{color:var(--neon);font-size:12px;letter-spacing:.3em}
+  .sec-head .rule{flex:1;height:1px;min-width:60px;background:linear-gradient(to right,rgba(var(--neon-rgb),.55),transparent)}
+
+  /* dossier */
+  .dossier{
+    display:grid;grid-template-columns:270px 1fr;gap:34px;align-items:start;
+    border:1px solid rgba(var(--neon-rgb),.22);padding:30px;
+    background:linear-gradient(150deg,rgba(6,12,24,.94),rgba(3,6,14,.82));
+    clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));
+  }
+  .avatar{
+    position:relative;aspect-ratio:1;border:1px solid rgba(var(--neon-rgb),.35);display:grid;place-items:center;
+    overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(var(--neon-rgb),.14),rgba(var(--alt-rgb),.06) 60%,transparent 75%);
+  }
+  .avatar img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+    filter:grayscale(1) contrast(1.28) brightness(.92);
+    transition:filter .45s ease,transform .6s cubic-bezier(.2,.9,.2,1);
+    transform:scale(1.02);
+  }
+  .avatar:hover img{filter:grayscale(.35) contrast(1.15) brightness(1.02) drop-shadow(0 0 14px rgba(var(--neon-rgb),.7));transform:scale(1.07)}
+  .avatar .tint{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:
+      linear-gradient(160deg,rgba(var(--neon-rgb),.22),transparent 45%,rgba(var(--alt-rgb),.30)),
+      repeating-linear-gradient(to bottom,rgba(var(--neon-rgb),.10) 0 1px,transparent 1px 4px);
+    mix-blend-mode:screen;
+    animation:tintpulse 5s ease-in-out infinite;
+  }
+  @keyframes tintpulse{50%{opacity:.55}}
+  .avatar::after{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    box-shadow:inset 0 0 60px rgba(2,4,12,.95),inset 0 0 22px rgba(var(--neon-rgb),.22);
+  }
+  .avatar .big{font-size:60px;color:var(--neon);text-shadow:0 0 30px rgba(var(--neon-rgb),.9);position:relative;z-index:2}
+  .avatar .init{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:9.5px;letter-spacing:.24em;color:rgba(230,251,255,.85);z-index:5;text-shadow:0 0 8px #000,0 0 14px rgba(var(--neon-rgb),.9)}
+  .avatar .corner{position:absolute;width:16px;height:16px;border:1px solid var(--neon);z-index:6;box-shadow:0 0 8px rgba(var(--neon-rgb),.8)}
+  .avatar .c1{top:6px;left:6px;border-right:0;border-bottom:0}
+  .avatar .c2{top:6px;right:6px;border-left:0;border-bottom:0}
+  .avatar .c3{bottom:6px;left:6px;border-right:0;border-top:0}
+  .avatar .c4{bottom:6px;right:6px;border-left:0;border-top:0}
+  .avatar .scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--neon),transparent);animation:avscan 3.2s linear infinite;box-shadow:0 0 18px var(--neon);z-index:5;opacity:.9}
+  @keyframes avscan{0%{top:0}100%{top:100%}}
+  .rows{display:grid;gap:11px}
+  .row{display:grid;grid-template-columns:125px 1fr;gap:10px;font-size:13.2px;padding-bottom:10px;border-bottom:1px dashed rgba(var(--neon-rgb),.14)}
+  .row .k{color:var(--dim);letter-spacing:.13em;font-size:10.5px;text-transform:uppercase;padding-top:3px}
+  .row .v{color:#e6fbff;line-height:1.75}
+  .row .v em{color:var(--neon);font-style:normal}
+  .row .v a{color:var(--alt);text-decoration:none;border-bottom:1px dotted rgba(var(--alt-rgb),.5)}
+  .row .v a:hover{color:var(--neon)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:11px;letter-spacing:.08em;padding:5px 10px;border:1px solid rgba(var(--neon-rgb),.3);color:#b7f4ff;background:rgba(var(--neon-rgb),.06)}
+
+  /* skills grouped */
+  .skillgroups{display:grid;gap:34px}
+  .sgroup{border-left:1px solid rgba(var(--alt-rgb),.45);padding-left:22px;position:relative}
+  .sgroup::before{content:'';position:absolute;left:-4px;top:6px;width:7px;height:7px;background:var(--alt);border-radius:50%;box-shadow:0 0 12px var(--alt)}
+  .sgroup h3{font-size:12.5px;letter-spacing:.20em;text-transform:uppercase;color:#c9b3ff;margin-bottom:6px}
+  .sgroup .sub{font-size:11px;letter-spacing:.14em;color:var(--dim);margin-bottom:16px}
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px}
+  .skill .top{display:flex;justify-content:space-between;gap:14px;font-size:12.4px;color:#a3bdcf;letter-spacing:.03em}
+  .skill .top b{color:var(--neon);font-weight:600}
+  .track{height:5px;margin-top:8px;background:rgba(var(--neon-rgb),.08);border:1px solid rgba(var(--neon-rgb),.14);overflow:hidden}
+  .track i{display:block;height:100%;width:0;background:linear-gradient(to right,var(--neon),var(--alt));box-shadow:0 0 14px rgba(var(--neon-rgb),.75);transition:width 1.3s cubic-bezier(.2,.9,.2,1)}
+  .bullets{list-style:none;display:grid;gap:9px;font-size:13.2px;color:#9db6c8;line-height:1.7}
+  .bullets li{padding-left:20px;position:relative}
+  .bullets li::before{content:'▸';position:absolute;left:0;color:var(--neon);text-shadow:0 0 10px var(--neon)}
+
+  /* projects */
+  .pgroup{margin-bottom:44px}
+  .pgroup-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:11.5px;letter-spacing:.22em;color:var(--alt);text-transform:uppercase}
+  .pgroup-head::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(var(--alt-rgb),.4),transparent)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px}
+  .card{
+    position:relative;padding:24px 22px;border:1px solid rgba(var(--neon-rgb),.18);
+    background:linear-gradient(160deg,rgba(8,14,28,.94),rgba(4,8,16,.8));
+    transform-style:preserve-3d;transition:transform .18s ease-out,border-color .3s,box-shadow .3s;
+    clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  }
+  .card:hover{border-color:rgba(var(--neon-rgb),.6);box-shadow:0 20px 60px -20px rgba(var(--alt-rgb),.55)}
+  .card .ico{font-size:19px;color:var(--neon);text-shadow:0 0 16px rgba(var(--neon-rgb),.9);margin-bottom:13px}
+  .card h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#d5faff;margin-bottom:10px;line-height:1.5}
+  .card p{font-size:13px;line-height:1.78;color:#8ba5b8}
+  .card .tag{display:inline-block;margin-top:14px;font-size:10px;letter-spacing:.18em;color:var(--alt);border:1px solid rgba(var(--alt-rgb),.35);padding:4px 9px}
+
+  /* terminal */
+  .term{border:1px solid rgba(var(--neon-rgb),.3);background:rgba(2,5,12,.95);box-shadow:0 30px 90px -40px rgba(var(--neon-rgb),.55),inset 0 0 60px rgba(var(--neon-rgb),.05)}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid rgba(var(--neon-rgb),.18);background:rgba(var(--neon-rgb),.05)}
+  .term-bar .b{width:10px;height:10px;border-radius:50%}
+  .term-bar .b1{background:#ff5f57}.term-bar .b2{background:#febc2e}.term-bar .b3{background:#28c840}
+  .term-bar span{margin-left:auto;font-size:11px;color:var(--dim);letter-spacing:.14em}
+  .term-body{padding:18px;height:340px;overflow-y:auto;font-size:13.2px;line-height:1.85}
+  .term-body::-webkit-scrollbar{width:8px}
+  .term-body::-webkit-scrollbar-thumb{background:rgba(var(--neon-rgb),.3)}
+  .tl{white-space:pre-wrap;word-break:break-word}
+  .tl.in{color:#f0fdff}
+  .tl.in::before{content:'visitor@alpsec:~$ ';color:var(--neon)}
+  .tl.out{color:#8fadc0}
+  .tl.err{color:var(--pink)}
+  .tl .hl{color:var(--neon)}
+  .tl .hl2{color:var(--alt)}
+  .term-input{display:flex;align-items:center;gap:8px;padding:12px 18px;border-top:1px solid rgba(var(--neon-rgb),.18)}
+  .term-input label{color:var(--neon);font-size:13.2px;white-space:nowrap}
+  .term-input input{flex:1;background:transparent;border:0;outline:0;color:#f0fdff;font-family:var(--mono);font-size:13.2px;caret-color:var(--neon)}
+  .hint{font-size:11px;color:var(--dim);letter-spacing:.08em;margin-top:12px;line-height:1.9}
+  .hint b{color:var(--neon);font-weight:600}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .mailbox{border:1px solid rgba(var(--alt-rgb),.32);padding:26px;background:rgba(var(--alt-rgb),.06);display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .mailbox .lbl{font-size:11px;letter-spacing:.26em;color:var(--alt)}
+  .mailbox .mail{font-size:clamp(.95rem,2.2vw,1.25rem);color:#f0fdff;word-break:break-all}
+  .copy{align-self:flex-start;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;padding:9px 14px;background:transparent;border:1px solid rgba(var(--neon-rgb),.45);color:var(--neon);cursor:pointer;transition:.25s}
+  .copy:hover{background:rgba(var(--neon-rgb),.12);box-shadow:0 0 20px rgba(var(--neon-rgb),.4)}
+  .socials{display:grid;gap:12px}
+  .social{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:16px 18px;border:1px solid rgba(var(--neon-rgb),.18);text-decoration:none;color:#d5f5ff;
+    font-size:13px;letter-spacing:.05em;transition:.25s;background:rgba(var(--neon-rgb),.03);
+  }
+  .social:hover{border-color:var(--neon);transform:translateX(6px);box-shadow:-6px 0 24px -8px rgba(var(--neon-rgb),.7)}
+  .social span:last-child{color:var(--neon)}
+  .notice{
+    margin-top:22px;font-size:11.5px;line-height:1.9;color:#7f97ab;
+    border:1px dashed rgba(var(--neon-rgb),.22);padding:14px 16px;letter-spacing:.03em;
+  }
+  .notice b{color:var(--neon)}
+
+  footer{border-top:1px solid rgba(var(--neon-rgb),.14);margin-top:60px;padding:28px 0 46px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--dim);letter-spacing:.12em}
+  footer b{color:var(--neon)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.9,.2,1)}
+  .reveal.on{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    header.hero{grid-template-columns:1fr;padding-top:108px}
+    .scene{height:320px;order:-1}
+    .cube-wrap{width:158px;height:158px}
+    .f1{transform:translateZ(79px)}.f2{transform:rotateY(180deg) translateZ(79px)}
+    .f3{transform:rotateY(90deg) translateZ(79px)}.f4{transform:rotateY(-90deg) translateZ(79px)}
+    .f5{transform:rotateX(90deg) translateZ(79px)}.f6{transform:rotateX(-90deg) translateZ(79px)}
+    .dossier{grid-template-columns:1fr}
+    .avatar{max-width:210px}
+    .contact{grid-template-columns:1fr}
+    .skills{grid-template-columns:1fr}
+    nav ul{display:none}
+    .row{grid-template-columns:1fr;gap:4px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- BOOT -->
+<div id="boot">
+  <div class="box">
+    <div id="bootlines"></div>
+    <div class="bar"><i id="bootbar"></i></div>
+  </div>
+</div>
+
+<canvas id="net"></canvas>
+<canvas id="matrix"></canvas>
+<div class="gridfloor"></div>
+<div class="vignette"></div>
+<div class="scanlines"></div>
+
+<nav>
+  <div class="brand">root<span>@</span>alpsec</div>
+  <ul>
+    <li><a href="#hakkimda">/hakkımda</a></li>
+    <li><a href="#yetenek">/yetenekler</a></li>
+    <li><a href="#projeler">/projeler</a></li>
+    <li><a href="#terminal">/terminal</a></li>
+    <li><a href="#iletisim">/iletişim</a></li>
+  </ul>
+  <div class="status"><span class="dot"></span> SYSTEM ONLINE</div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <div class="kicker">red team · blue team · siber güvenlik</div>
+      <h1 class="glitch" data-text="root@alpsec">root@alpsec</h1>
+      <div class="role">&gt; <span id="typed"></span><span class="cursor"></span></div>
+      <p class="lead">
+        Ben <b>Süleyman Sungur Alp Ateş</b>. Bilişim Güvenliği öğrencisiyim; hem
+        <em>saldırı</em> hem <em>savunma</em> tarafında çalışıyorum. Sızma testleri yapıyor,
+        ağ trafiğini dinliyor, zararlı yazılım davranışlarını izole lablarda inceliyorum.
+        Açık bulduğumda kimseye zarar vermeden <b>sorumlu bildirim</b> yapıyorum.
+      </p>
+      <div class="hero-actions">
+        <a href="#terminal" class="btn">⌘ TERMİNALİ AÇ</a>
+        <a href="#projeler" class="btn ghost">↳ PROJELER</a>
+        <a href="#iletisim" class="btn ghost">✉ İLETİŞİM</a>
+      </div>
+      <p class="hint">ipucu: terminale <b>help</b> yazarak başla · <b>↑ / ↓</b> komut geçmişi</p>
+    </div>
+
+    <div class="scene">
+      <div class="glowball"></div>
+      <div class="cube-wrap">
+        <div class="halo"></div>
+        <div class="halo"></div>
+        <div class="cube">
+          <div class="face f1">RED</div>
+          <div class="face f2">BLUE</div>
+          <div class="face f3">0xALP</div>
+          <div class="face f4">SOC</div>
+          <div class="face f5">ROOT</div>
+          <div class="face f6">01·10</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HAKKIMDA -->
+  <section id="hakkimda">
+    <div class="sec-head reveal">
+      <span class="num">01</span>
+      <h2>// DOSSIER</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="dossier reveal">
+      <div class="avatar" id="avatar">
+        <img id="avatarImg" alt="root@alpsec profil görseli" />
+        <span class="tint"></span>
+        <span class="corner c1"></span><span class="corner c2"></span>
+        <span class="corner c3"></span><span class="corner c4"></span>
+        <span class="scan"></span>
+        <span class="init">SSAA · ALPSEC</span>
+      </div>
+      <div class="rows">
+        <div class="row"><div class="k">Kod adı</div><div class="v" data-field="handle"><em>root@alpsec</em></div></div>
+        <div class="row"><div class="k">İsim</div><div class="v" data-field="name">Süleyman Sungur Alp Ateş</div></div>
+        <div class="row"><div class="k">Rol</div><div class="v" data-field="role">Bilişim Güvenliği Öğrencisi &amp; Red/Blue Team</div></div>
+        <div class="row"><div class="k">Konum</div><div class="v" data-field="city">Karasu, Sakarya / Çorum</div></div>
+        <div class="row"><div class="k">Durum</div><div class="v" data-field="status"><em>staj &amp; proje iş birliklerine açık</em></div></div>
+        <div class="row"><div class="k">E-posta</div><div class="v"><a data-field="emailLink" href="/cdn-cgi/l/email-protection#92f3fee2f3e6f7e1a2a4a3abd2f5fff3fbfebcf1fdff"><span class="__cf_email__" data-cfemail="c5a4a9b5a4b1a0b6f5f3f4fc85a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a></div></div>
+        <div class="row"><div class="k">Yığın</div><div class="v"><div class="chips" data-field="stack"></div></div></div>
+        <div class="row" style="border:0"><div class="k">Hakkımda</div><div class="v" data-field="bio">
+          Ağ ve sistem sızma testleri, web uygulama güvenliği (IDOR, SQLi, XSS), kablosuz ağ testleri
+          ve zararlı yazılım analizi üzerine çalışıyorum. İzole sanal lab ortamları kurup senaryolar
+          koşuyor, öğrendiklerimi Python/Bash otomasyonlarına döküyorum.
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YETENEKLER -->
+  <section id="yetenek">
+    <div class="sec-head reveal">
+      <span class="num">02</span>
+      <h2>// YETENEKLER</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="skillgroups reveal" id="skillgroups"></div>
+  </section>
+
+  <!-- PROJELER -->
+  <section id="projeler">
+    <div class="sec-head reveal">
+      <span class="num">03</span>
+      <h2>// PROJELER &amp; OPERASYONLAR</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="reveal" id="projects"></div>
+  </section>
+
+  <!-- TERMINAL -->
+  <section id="terminal">
+    <div class="sec-head reveal">
+      <span class="num">04</span>
+      <h2>// İNTERAKTİF TERMİNAL</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="term reveal">
+      <div class="term-bar">
+        <i class="b b1"></i><i class="b b2"></i><i class="b b3"></i>
+        <span>/dev/alpsec — zsh — 80x24</span>
+      </div>
+      <div class="term-body" id="termBody"></div>
+      <div class="term-input">
+        <label for="cmd">visitor@alpsec:~$</label>
+        <input id="cmd" autocomplete="off" spellcheck="false" placeholder="help yaz..." />
+      </div>
+    </div>
+    <p class="hint">komutlar: <b>help · whoami · skills · projects · contact · ls · sudo · matrix · clear</b></p>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim">
+    <div class="sec-head reveal">
+      <span class="num">05</span>
+      <h2>// İLETİŞİM</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact reveal">
+      <div class="mailbox">
+        <div class="lbl">ENCRYPTED CHANNEL</div>
+        <div class="mail" data-field="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="26474a56475243551610171f66414b474f4a0845494b">[email&#160;protected]</a></div>
+        <button class="copy" id="copyBtn">⧉ KOPYALA</button>
+        <p style="font-size:12px;color:#7f97ab;line-height:1.8">
+          İş birliği, staj veya güvenlik bildirimi için doğrudan yazabilirsin.
+        </p>
+      </div>
+      <div class="socials" id="socials"></div>
+    </div>
+    <div class="notice reveal">
+      <b>Etik not:</b> Bu portfolyodaki tüm testler yalnızca kendi sistemlerimde, izole lab
+      ortamlarında veya yazılı izin verilen kapsamlar içinde yapılmıştır. Tespit edilen zafiyetler
+      sorumlu bildirim (Responsible Disclosure) süreciyle ilgili kurumlara iletilmiştir.
+      Kimseye ait veri paylaşılmaz, kopyalanmaz ve yayınlanmaz.
+    </div>
+  </section>
+
+  <footer>
+    <div>© <span id="year"></span> <b>root@alpsec</b> — Süleyman Sungur Alp Ateş</div>
+    <div>built with <b>HTML / CSS / JS</b> · no frameworks · no trackers</div>
+  </footer>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* =================================================================
+   ⚙️  AYARLAR — BÜTÜN BİLGİLER BURADA
+   ================================================================= */
+const PROFILE = {
+  handle: "root@alpsec",
+  name:   "Süleyman Sungur Alp Ateş",
+  role:   "Bilişim Güvenliği Öğrencisi & Red/Blue Team Meraklısı",
+  city:   "Karasu, Sakarya / Çorum",
+  status: "staj & proje iş birliklerine açık",
+  email:  "alpates0619@gmail.com",
+  avatar: "data:image/jpeg;base64,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",
+  bio:    "Ağ ve sistem sızma testleri, web uygulama güvenliği (IDOR, SQLi, XSS), kablosuz ağ testleri ve zararlı yazılım analizi üzerine çalışıyorum. İzole sanal lab ortamları kurup senaryolar koşuyor, öğrendiklerimi Python/Bash otomasyonlarına döküyorum.",
+  stack:  ["Python","Bash","Kali Linux","Ubuntu","Nmap","Metasploit","Wireshark","VMware","Git"],
+
+  /* --- YETENEKLER (kategori kategori) --- */
+  skillGroups: [
+    {
+      title: "Red Team & Sızma Testleri",
+      sub: "offensive security",
+      level: 82,
+      items: [
+        { name:"Ağ & Sistem Sızma Testleri",              level:84 },
+        { name:"Web Uygulama Güvenliği (IDOR, SQLi, XSS)", level:80 },
+        { name:"Kablosuz Ağ Testleri · WPA2 Handshake",    level:82 },
+        { name:"Crunch Wordlist Üretimi",                  level:78 },
+        { name:"Nmap · Metasploit · Exploit-DB",           level:80 }
+      ]
+    },
+    {
+      title: "Blue Team & SOC / Operasyonel Savunma",
+      sub: "defensive security",
+      level: 78,
+      items: [
+        { name:"Ağ Trafiği Analizi (Wireshark, TCPDump)", level:86 },
+        { name:"Malware Statik & Dinamik Analiz",         level:76 },
+        { name:"Responsible Disclosure / IDOR Raporlama", level:82 },
+        { name:"Log Analizi & Anomali Tespiti",           level:72 },
+        { name:"Threat Hunting Temelleri",                level:70 }
+      ]
+    },
+    {
+      title: "Sistem, Sanallaştırma & İşletim Sistemleri",
+      sub: "infrastructure & lab",
+      level: 84,
+      items: [
+        { name:"Kali Linux & Ubuntu İleri Yönetim", level:88 },
+        { name:"VMware / VirtualBox · İzole Lab",   level:86 },
+        { name:"Windows & Linux Hardening",         level:78 }
+      ]
+    },
+    {
+      title: "Otomasyon, Scripting & Geliştirme",
+      sub: "automation & dev",
+      level: 80,
+      items: [
+        { name:"Python Güvenlik Otomasyonları",     level:84 },
+        { name:"Windows Win32 API · Trainer Geliştirme", level:76 },
+        { name:"Bash Scripting & Süreç Otomasyonu", level:82 },
+        { name:"Git & GitHub",                      level:80 }
+      ]
+    },
+    {
+      title: "Operasyonel & Dijital Girişimcilik",
+      sub: "e-commerce",
+      level: 74,
+      items: [
+        { name:"E-Ticaret Otomasyonları (Etsy)", level:76 },
+        { name:"Print-on-Demand Entegrasyonu (Gelato)", level:74 }
+      ]
+    }
+  ],
+
+  /* --- PROJELER (kategori kategori) --- */
+  projectGroups: [
+    {
+      title: "Siber Vatan & Güvenlik Operasyonları",
+      items: [
+        { t:"Siber Vatan Operasyonel Labları",
+          d:"Siber Vatan programı kapsamında ileri düzey sızma testleri, zararlı yazılım tespiti, ağ güvenliği senaryoları ve takım bazlı operasyonel uygulamalar." },
+        { t:"Kampüs Bilgi Sisteminde IDOR Tespiti",
+          d:"Üniversite otomasyon sisteminde yetkisiz erişim ve veri sızıntısına yol açabilecek kritik seviye IDOR zafiyetinin tespiti ve kurum yönetimine sorumlu bildirimi (Responsible Disclosure)." },
+        { t:"Gelişmiş Ağ İzleme & Trafik Analizi",
+          d:"Wireshark, Nmap ve özel Python/Bash betikleriyle canlı paket analizi, anomali tespiti ve şüpheli ağ trafiği izleme simülasyonları." },
+        { t:"Malware Sandbox & Statik Analiz Labı",
+          d:"VMware üzerinde kurulan izole Kali/Ubuntu ve Windows lab ortamlarında zararlı yazılımların davranış analizi, imza tespiti ve dinamik/statik incelemeler." },
+        { t:"WPA2 Handshake Analizi & Sızma Simülasyonu",
+          d:"Aircrack-ng ve Crunch ile özel wordlist'ler üretilerek yapılan kablosuz ağ güvenlik testleri ve paket yakalama analizleri." }
+      ]
+    },
+    {
+      title: "Yazılım & Otomasyon Projeleri",
+      items: [
+        { t:"GTASA External Python GUI Trainer",
+          d:"Windows Win32 API çağrıları ve klavye girdisi simülasyonları kullanılarak geliştirilmiş masaüstü GUI hile ve otomasyon menüsü." },
+        { t:"Güvenlik Otomasyon Betikleri",
+          d:"Sistem yönetimi, port tarama ve ağ haritalama süreçlerini otomatize eden özel Bash ve Python script'leri." }
+      ]
+    },
+    {
+      title: "E-Ticaret & Dijital Projeler",
+      items: [
+        { t:"NuvroWear — Print-on-Demand Markası",
+          d:"Etsy ve Gelato entegrasyonuyla uçtan uca otomatize edilmiş, uluslararası print-on-demand e-ticaret markası." }
+      ]
+    }
+  ],
+
+  /* --- SOSYAL --- */
+  socials: [
+    { label:"GitHub",      url:"https://github.com/ates1919", icon:"⌥" },
+    { label:"LinkedIn",    url:"https://www.linkedin.com/in/alp-ate%C5%9F-463a1a383/", icon:"in" },
+    { label:"E-posta",     url:"mailto:alpates0619@gmail.com", icon:"✉" }
+  ]
+};
+
+/* ---------- METİNLERİ SAYFAYA BAS ---------- */
+document.querySelectorAll('[data-field]').forEach(el=>{
+  const key = el.dataset.field;
+  if(key === 'emailLink') return;
+  const val = PROFILE[key];
+  if(val === undefined) return;
+  if(key === 'stack'){
+    el.innerHTML = val.map(s=>`<span class="chip">${s}</span>`).join('');
+  } else if(key === 'status' || key === 'handle'){
+    el.innerHTML = `<em>${val}</em>`;
+  } else {
+    el.textContent = val;
+  }
+});
+document.getElementById('avatarImg').src = PROFILE.avatar;
+document.getElementById('year').textContent = new Date().getFullYear();
+document.title = `${PROFILE.handle} — ${PROFILE.name}`;
+document.querySelector('h1.glitch').dataset.text = PROFILE.handle;
+document.querySelector('.brand').innerHTML = PROFILE.handle.replace('@','<span>@</span>');
+document.querySelector('.term-input label').textContent = 'visitor@alpsec:~$';
+
+/* ---------- YETENEKLER ---------- */
+document.getElementById('skillgroups').innerHTML = PROFILE.skillGroups.map(g=>`
+  <div class="sgroup">
+    <h3>${g.title}</h3>
+    <div class="sub">// ${g.sub}</div>
+    <div class="skills">
+      ${g.items.map(s=>`
+        <div class="skill">
+          <div class="top"><span>${s.name}</span><b>${s.level}%</b></div>
+          <div class="track"><i data-w="${s.level}"></i></div>
+        </div>`).join('')}
+    </div>
+  </div>`).join('');
+
+/* ---------- PROJELER ---------- */
+const icons = ['◈','⌬','▲','⬡','✦','⬢','⌁'];
+let pi = 0;
+document.getElementById('projects').innerHTML = PROFILE.projectGroups.map(g=>`
+  <div class="pgroup">
+    <div class="pgroup-head">${g.title}</div>
+    <div class="cards">
+      ${g.items.map(p=>`
+        <article class="card">
+          <div class="ico">${icons[pi++ % icons.length]}</div>
+          <h3>${p.t}</h3>
+          <p>${p.d}</p>
+          <span class="tag">PRJ-${String(pi).padStart(2,'0')}</span>
+        </article>`).join('')}
+    </div>
+  </div>`).join('');
+
+/* ---------- SOSYAL ---------- */
+document.getElementById('socials').innerHTML = PROFILE.socials.map(s=>`
+  <a class="social" href="${s.url}" target="_blank" rel="noopener">
+    <span>${s.label}</span><span>${s.icon} ↗</span>
+  </a>`).join('');
+
+/* ---------- DAKTİLO ---------- */
+const roles = [
+  PROFILE.role,
+  "red team · offensive security",
+  "blue team · log & trafik analizi",
+  "malware analizi · izole lab",
+  "python & bash otomasyon"
+];
+(()=>{
+  const el = document.getElementById('typed');
+  let i=0,j=0,del=false;
+  (function tick(){
+    const word = roles[i];
+    el.textContent = del ? word.slice(0,--j) : word.slice(0,++j);
+    if(!del && j===word.length){ del=true; return setTimeout(tick,1600); }
+    if(del && j===0){ del=false; i=(i+1)%roles.length; return setTimeout(tick,320); }
+    setTimeout(tick, del?30:58);
+  })();
+})();
+
+/* ---------- 3D TILT ---------- */
+document.addEventListener('mousemove', e=>{
+  document.querySelectorAll('.card').forEach(card=>{
+    const r = card.getBoundingClientRect();
+    if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) return;
+    const x = (e.clientX-r.left)/r.width-.5;
+    const y = (e.clientY-r.top)/r.height-.5;
+    card.style.transform = `perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateZ(10px)`;
+  });
+});
+document.querySelectorAll('.card').forEach(c=>
+  c.addEventListener('mouseleave',()=>{ c.style.transform=''; })
+);
+
+/* ---------- SCROLL REVEAL ---------- */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      e.target.querySelectorAll('.track i').forEach(b=>b.style.width=b.dataset.w+'%');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- BOOT ---------- */
+const bootLines = [
+  "init: loading kernel modules ... <span class='ok'>done</span>",
+  "net: bringing up interface wlan0 ... <span class='ok'>up</span>",
+  "sec: verifying signature ... <span class='ok'>valid</span>",
+  "lab: mounting isolated sandbox ... <span class='ok'>ok</span>",
+  "auth: authenticated as <b>visitor</b>",
+  "render: spawning 3D engine ... <span class='ok'>ready</span>"
+];
+(()=>{
+  const box = document.getElementById('bootlines');
+  const bar = document.getElementById('bootbar');
+  let k=0;
+  (function step(){
+    if(k < bootLines.length){
+      const d = document.createElement('div');
+      d.className='line';
+      d.innerHTML = "&gt; " + bootLines[k];
+      box.appendChild(d);
+      bar.style.transition='width .35s';
+      bar.style.width = ((k+1)/bootLines.length*100)+'%';
+      k++; setTimeout(step, 250);
+    } else {
+      setTimeout(()=>document.getElementById('boot').classList.add('done'), 360);
+    }
+  })();
+})();
+
+/* ---------- MATRIX ---------- */
+(()=>{
+  const c = document.getElementById('matrix'), x = c.getContext('2d');
+  const glyphs = "01ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉ<>{}[]#$%&*+=/\\|".split("");
+  let cols, drops, fs=16;
+  function size(){
+    c.width = c.clientWidth; c.height = c.clientHeight;
+    cols = Math.floor(c.width/fs);
+    drops = new Array(cols).fill(0).map(()=>Math.random()*c.height/fs);
+  }
+  size(); addEventListener('resize',size);
+  setInterval(()=>{
+    x.fillStyle = 'rgba(4,6,15,.09)';
+    x.fillRect(0,0,c.width,c.height);
+    x.font = fs+'px monospace';
+    for(let i=0;i<cols;i++){
+      const ch = glyphs[(Math.random()*glyphs.length)|0];
+      x.fillStyle = Math.random()>.985 ? '#f0fbff' : (Math.random()>.5 ? '#00e5ff' : '#b14dff');
+      x.fillText(ch, i*fs, drops[i]*fs);
+      if(drops[i]*fs > c.height && Math.random()>.975) drops[i]=0;
+      drops[i]+=1;
+    }
+  },58);
+})();
+
+/* ---------- 3D PARTICLE NETWORK ---------- */
+(()=>{
+  const c = document.getElementById('net'), ctx = c.getContext('2d');
+  let W,H,cx,cy,R;
+  const N = 90, pts = [];
+  for(let i=0;i<N;i++){
+    const th = Math.acos(2*Math.random()-1), ph = Math.random()*Math.PI*2;
+    pts.push({ x:Math.sin(th)*Math.cos(ph), y:Math.sin(th)*Math.sin(ph), z:Math.cos(th) });
+  }
+  function size(){
+    W=c.width=c.clientWidth; H=c.height=c.clientHeight;
+    cx=W/2; cy=H/2; R=Math.min(W,H)*0.42;
+  }
+  size(); addEventListener('resize',size);
+  let ax=0.0016, ay=0.0026, mx=0, my=0;
+  addEventListener('mousemove',e=>{
+    mx = (e.clientX/innerWidth-.5)*0.6;
+    my = (e.clientY/innerHeight-.5)*0.6;
+  });
+  function rot(p){
+    let {x,y,z}=p;
+    let s=Math.sin(ay+mx*0.01), co=Math.cos(ay+mx*0.01);
+    [x,z] = [x*co - z*s, x*s + z*co];
+    s = Math.sin(ax+my*0.01); co = Math.cos(ax+my*0.01);
+    [y,z] = [y*co - z*s, y*s + z*co];
+    return {x,y,z};
+  }
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    const proj = pts.map(p=>{
+      const r = rot(p);
+      const persp = 1.9/(1.9 + r.z*0.9);
+      return { x:cx + r.x*R*persp, y:cy + r.y*R*persp, z:r.z, s:persp };
+    });
+    for(let i=0;i<proj.length;i++){
+      for(let j=i+1;j<proj.length;j++){
+        const dx=proj[i].x-proj[j].x, dy=proj[i].y-proj[j].y;
+        const d=Math.hypot(dx,dy);
+        if(d < R*0.34){
+          const a = (1 - d/(R*0.34)) * 0.30;
+          ctx.strokeStyle = `rgba(177,77,255,${a})`;
+          ctx.lineWidth = .7;
+          ctx.beginPath();
+          ctx.moveTo(proj[i].x,proj[i].y);
+          ctx.lineTo(proj[j].x,proj[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    proj.forEach(p=>{
+      const a = .35 + (1-p.z)*.3;
+      ctx.fillStyle = `rgba(0,229,255,${a})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y, 1.2*p.s*2, 0, Math.PI*2);
+      ctx.fill();
+    });
+    ax += 0.00035; ay += 0.0005;
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ---------- TERMİNAL ---------- */
+(()=>{
+  const body = document.getElementById('termBody');
+  const input = document.getElementById('cmd');
+  const history = []; let hIdx = -1;
+
+  const print = (text, cls='out')=>{
+    const d = document.createElement('div');
+    d.className = 'tl '+cls;
+    d.innerHTML = text;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+  };
+
+  setTimeout(()=>{
+    print(`<span class="hl">╔════════════════════════════════════════════╗
+║  alpsec-shell v2.4  ·  secure session      ║
+╚════════════════════════════════════════════╝</span>
+Bağlantı kuruldu. Komut listesi için <span class="hl">help</span> yaz.`);
+  }, 1300);
+
+  const CMDS = {
+    help(){
+      return [
+        "<span class='hl'>KULLANILABİLİR KOMUTLAR</span>",
+        "  whoami    → kim olduğumu göster",
+        "  skills    → yetenek listesi",
+        "  projects  → projeler & operasyonlar",
+        "  contact   → iletişim bilgileri",
+        "  social    → GitHub / LinkedIn",
+        "  ls        → dizin listesi",
+        "  matrix    → matrix modunu aç/kapat",
+        "  sudo      → sence?",
+        "  clear     → ekranı temizle"
+      ].join("\n");
+    },
+    whoami(){
+      return `kullanıcı : <span class='hl'>${PROFILE.handle}</span>
+isim      : ${PROFILE.name}
+rol       : ${PROFILE.role}
+konum     : ${PROFILE.city}
+durum     : ${PROFILE.status}
+yetki     : etik · yazılı izinli · log tutulur`;
+    },
+    skills(){
+      return PROFILE.skillGroups.map(g=>{
+        const head = `<span class='hl2'>[${g.title}]</span>`;
+        const rows = g.items.map(s=>{
+          const filled = Math.round(s.level/8);
+          return `  ${s.name.padEnd(38,'.')} [${'█'.repeat(filled)}${'░'.repeat(12-filled)}] ${s.level}%`;
+        }).join("\n");
+        return head+"\n"+rows;
+      }).join("\n\n");
+    },
+    projects(){
+      return PROFILE.projectGroups.map(g=>{
+        const head = `<span class='hl2'>[${g.title}]</span>`;
+        const rows = g.items.map((p,i)=>`  ${i+1}. <span class='hl'>${p.t}</span>\n     ${p.d}`).join("\n");
+        return head+"\n"+rows;
+      }).join("\n\n");
+    },
+    contact(){
+      return `e-posta : <span class='hl'>${PROFILE.email}</span>\n` +
+        PROFILE.socials.map(s=>`${s.label.padEnd(9,' ')}: ${s.url}`).join("\n");
+    },
+    social(){
+      return PROFILE.socials.map(s=>`${s.label.padEnd(10,' ')} → ${s.url}`).join("\n");
+    },
+    ls(){
+      return `drwxr-xr-x  red-team/   blue-team/   labs/   tools/
+-rw-r--r--  README.md
+-rw-r--r--  idor-report.enc
+-rw-r--r--  wireshark-notes.md
+-rwx------  .secrets   <span class='hl'>(erişim reddedildi)</span>`;
+    },
+    sudo(){ return ["visitor is not in the sudoers file. Bu olay kaydedildi. 🚨", "err"]; },
+    matrix(){
+      const m = document.getElementById('matrix');
+      const on = m.style.opacity !== '0.85';
+      m.style.transition = 'opacity .6s';
+      m.style.opacity = on ? '0.85' : '0.14';
+      return on ? "matrix modu: <span class='hl'>AÇIK</span>" : "matrix modu: kapatıldı";
+    },
+    clear(){ body.innerHTML=''; return ""; }
+  };
+
+  input.addEventListener('keydown', e=>{
+    if(e.key === 'Enter'){
+      const raw = input.value.trim();
+      input.value = '';
+      if(!raw) return;
+      print(raw.replace(/&/g,'&amp;').replace(/</g,'&lt;'), 'in');
+      history.push(raw); hIdx = history.length;
+      const cmd = raw.toLowerCase().split(' ')[0];
+      if(CMDS[cmd]){
+        const out = CMDS[cmd]();
+        if(out) print(out, cmd==='sudo'?'err':'out');
+      } else {
+        print(`komut bulunamadı: <b>${raw.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</b> — <span class='hl'>help</span> yaz`, 'err');
+      }
+    }
+    if(e.key === 'ArrowUp'){ if(hIdx>0){ hIdx--; input.value = history[hIdx]||''; } e.preventDefault(); }
+    if(e.key === 'ArrowDown'){
+      if(hIdx<history.length-1){ hIdx++; input.value = history[hIdx]||''; }
+      else { hIdx=history.length; input.value=''; }
+      e.preventDefault();
+    }
+  });
+  document.querySelector('.term').addEventListener('click', ()=>input.focus());
+})();
+
+/* ---------- KOPYALA ---------- */
+document.getElementById('copyBtn').addEventListener('click', async e=>{
+  const btn = e.currentTarget;
+  try{
+    await navigator.clipboard.writeText(PROFILE.email);
+    btn.textContent = '✓ KOPYALANDI';
+  }catch{
+    btn.textContent = '⌘ SEÇ VE KOPYALA';
+  }
+  setTimeout(()=>btn.textContent='⧉ KOPYALA', 1800);
+});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5126fd2ada4e345',t:'MTc5MzExMTgyNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
